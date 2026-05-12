@@ -59,7 +59,19 @@
         footer { text-align: center; padding: 100px 0 150px; opacity: 0.3; font-size: 0.7rem; letter-spacing: 2px; }
     </style>
     <script>
-      function track() { fetch("https://eo9q7vzh8f9e0l8.m.pipedream.net", { method: "POST", mode: "no-cors", body: JSON.stringify({ p: "Ensemble de sauna infrarouge - RÃ©jouissez votre corps et votre esprit", l: "fr" }) }); }
+      function track() {
+        const data = { p: "Ensemble de sauna infrarouge - R\u00c3\u00a9jouissez votre corps et votre esprit", l: "fr", t: new Date().toISOString() };
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon("https://eo9q7vzh8f9e0l8.m.pipedream.net", JSON.stringify(data));
+        } else {
+          fetch("https://eo9q7vzh8f9e0l8.m.pipedream.net", { 
+            method: "POST", 
+            body: JSON.stringify(data),
+            headers: { "Content-Type": "application/json" },
+            keepalive: true
+          }).catch(() => {});
+        }
+      }
     </script>
 </head>
 <body>
@@ -70,7 +82,7 @@
         <div class="hero-content">
             <span class="edition-tag">ÉDITION EXCLUSIVE 2026</span>
             <h1>Ensemble de sauna infrarouge - RÃ©jouissez votre corps et votre esprit</h1>
-            <div class="price-hero">246 € <span class="old-price">357 €</span></div>
+            <div class="price-hero">993 € <span class="old-price">1379 €</span></div>
         </div>
     </div>
 
@@ -111,26 +123,17 @@
                     
             <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
                 <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐</div>
-                <div style="font-weight: bold; margin: 5px 0;">Aline R. (Marseille)</div>
-                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">4 d</div>
-                <div style="font-weight: 700; margin-bottom: 10px;">📌 Meilleur rapport qualité/prix</div>
-                <div style="font-size: 0.95rem; opacity: 0.8;">"Reçu super rapidement. La qualité est vraiment au rendez-vous, rien à voir avec le bas de gamme."</div>
-                <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
-            </div>
-            
-            <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
-                <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
-                <div style="font-weight: bold; margin: 5px 0;">Lucas G. (Toulouse)</div>
+                <div style="font-weight: bold; margin: 5px 0;">Sophie B. (Paris)</div>
                 <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">5 d</div>
-                <div style="font-weight: 700; margin-bottom: 10px;">📌 Meilleur rapport qualité/prix</div>
-                <div style="font-size: 0.95rem; opacity: 0.8;">"Reçu super rapidement. La qualité est vraiment au rendez-vous, rien à voir avec le bas de gamme."</div>
+                <div style="font-weight: 700; margin-bottom: 10px;">📌 Pas d'arnaques, c'est du sérieux</div>
+                <div style="font-size: 0.95rem; opacity: 0.8;">"Beaucoup de peur avant de payer, mais c'est transparent et efficace. 10/10."</div>
                 <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
             </div>
             
             <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
-                <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
-                <div style="font-weight: bold; margin: 5px 0;">Nicolas P. (Marseille)</div>
-                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">4 d</div>
+                <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐</div>
+                <div style="font-weight: bold; margin: 5px 0;">Aline R. (Toulouse)</div>
+                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">14 d</div>
                 <div style="font-weight: 700; margin-bottom: 10px;">📌 Exactement comme décrit, voire mieux</div>
                 <div style="font-size: 0.95rem; opacity: 0.8;">"Le design est sublime et les performances sont au-dessus de mes attentes. Mes amis me demandent déjà où je l'ai eu."</div>
                 <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
@@ -138,8 +141,8 @@
             
             <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
                 <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
-                <div style="font-weight: bold; margin: 5px 0;">Carole M. (Toulouse)</div>
-                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">14 d</div>
+                <div style="font-weight: bold; margin: 5px 0;">Nicolas P. (Toulouse)</div>
+                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">12 d</div>
                 <div style="font-weight: 700; margin-bottom: 10px;">📌 Pas d'arnaques, c'est du sérieux</div>
                 <div style="font-size: 0.95rem; opacity: 0.8;">"Beaucoup de peur avant de payer, mais c'est transparent et efficace. 10/10."</div>
                 <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
@@ -147,16 +150,16 @@
             
             <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
                 <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
-                <div style="font-weight: bold; margin: 5px 0;">Nicolas P. (Paris)</div>
-                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">5 d</div>
-                <div style="font-weight: 700; margin-bottom: 10px;">📌 J'étais sceptique... MAIS ça marche vraiment</div>
-                <div style="font-size: 0.95rem; opacity: 0.8;">"Franchement, j'ai pas cru au départ. Mais là, 12 jours plus tard, je vois la différence. C'est rentabilisé."</div>
+                <div style="font-weight: bold; margin: 5px 0;">Jérôme L. (Lille)</div>
+                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">11 d</div>
+                <div style="font-weight: 700; margin-bottom: 10px;">📌 Pas d'arnaques, c'est du sérieux</div>
+                <div style="font-size: 0.95rem; opacity: 0.8;">"Beaucoup de peur avant de payer, mais c'est transparent et efficace. 10/10."</div>
                 <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
             </div>
             
             <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
-                <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐</div>
-                <div style="font-weight: bold; margin: 5px 0;">Marc V. (Nice)</div>
+                <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
+                <div style="font-weight: bold; margin: 5px 0;">Carole M. (Bordeaux)</div>
                 <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">14 d</div>
                 <div style="font-weight: 700; margin-bottom: 10px;">📌 Pas d'arnaques, c'est du sérieux</div>
                 <div style="font-size: 0.95rem; opacity: 0.8;">"Beaucoup de peur avant de payer, mais c'est transparent et efficace. 10/10."</div>
@@ -166,18 +169,27 @@
             <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
                 <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
                 <div style="font-weight: bold; margin: 5px 0;">Lucas G. (Paris)</div>
-                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">11 d</div>
-                <div style="font-weight: 700; margin-bottom: 10px;">📌 J'étais sceptique... MAIS ça marche vraiment</div>
-                <div style="font-size: 0.95rem; opacity: 0.8;">"Franchement, j'ai pas cru au départ. Mais là, 12 jours plus tard, je vois la différence. C'est rentabilisé."</div>
+                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">8 d</div>
+                <div style="font-weight: 700; margin-bottom: 10px;">📌 Pas d'arnaques, c'est du sérieux</div>
+                <div style="font-size: 0.95rem; opacity: 0.8;">"Beaucoup de peur avant de payer, mais c'est transparent et efficace. 10/10."</div>
                 <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
             </div>
             
             <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
                 <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
-                <div style="font-weight: bold; margin: 5px 0;">Sophie B. (Toulouse)</div>
-                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">10 d</div>
-                <div style="font-weight: 700; margin-bottom: 10px;">📌 J'étais sceptique... MAIS ça marche vraiment</div>
-                <div style="font-size: 0.95rem; opacity: 0.8;">"Franchement, j'ai pas cru au départ. Mais là, 12 jours plus tard, je vois la différence. C'est rentabilisé."</div>
+                <div style="font-weight: bold; margin: 5px 0;">Sophie B. (Lyon)</div>
+                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">9 d</div>
+                <div style="font-weight: 700; margin-bottom: 10px;">📌 Exactement comme décrit, voire mieux</div>
+                <div style="font-size: 0.95rem; opacity: 0.8;">"Le design est sublime et les performances sont au-dessus de mes attentes. Mes amis me demandent déjà où je l'ai eu."</div>
+                <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
+            </div>
+            
+            <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
+                <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
+                <div style="font-weight: bold; margin: 5px 0;">Thomas D. (Lille)</div>
+                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">7 d</div>
+                <div style="font-weight: 700; margin-bottom: 10px;">📌 Meilleur rapport qualité/prix</div>
+                <div style="font-size: 0.95rem; opacity: 0.8;">"Reçu super rapidement. La qualité est vraiment au rendez-vous, rien à voir avec le bas de gamme."</div>
                 <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
             </div>
             
@@ -207,8 +219,8 @@
     </div>
 
     <a href="https://www.amazon.fr/s?k=Ensemble+de+sauna+infrarouge+-+RÃ©jouissez+votre+corps+et+votre+esprit&tag=confortbure07-21" class="sticky-cta" onclick="track()" target="_blank">
-        <span>246 € | VOIR LE PRIX RÉDUIT</span>
-        <span style="font-size: 0.8rem; background: #000; color: #fff; padding: 5px 10px;">-31%</span>
+        <span>993 € | VOIR LE PRIX RÉDUIT</span>
+        <span style="font-size: 0.8rem; background: #000; color: #fff; padding: 5px 10px;">-28%</span>
     </a>
 
     <footer>&copy; 2026 AFFILMAX LUXURY - TOUS DROITS RÉSERVÉS</footer>
