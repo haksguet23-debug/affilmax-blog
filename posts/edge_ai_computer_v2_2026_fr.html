@@ -4,73 +4,233 @@
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DÃ©bloquez le potentiel de l'IA avec l'ordinateur Edge AI V2 | ÉDITION EXCLUSIVE 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;700&family=Outfit:wght@300;800&display=swap" rel="stylesheet">
     <style>
-        :root { --p: #c5a059; --bg: #050505; --accent: #fff; }
-        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: #fff; margin:0; overflow-x: hidden; }
-        .top-bar { background: #111; padding: 10px; text-align: center; font-size: 0.7rem; color: var(--p); }
+        :root { --p: #8fb935; --a: #fff; --bg: #1a1c1a; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: #fff; margin:0; line-height: 1.6; }
+        .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.03; background: url('https://grainy-gradients.vercel.app/noise.svg'); z-index: 100; }
         
-        .hero { position: relative; height: 80vh; background: url('https://source.unsplash.com/featured/1200x800/?DÃ©bloquez,le,potentiel,de,l'IA,avec,l'ordinateur,Edge,AI,V2,luxury,product') center/cover; display: flex; align-items: flex-end; }
-        .hero-overlay { position: absolute; inset:0; background: linear-gradient(transparent, #000); }
-        .hero-content { position: relative; padding: 60px; max-width: 800px; }
-        h1 { font-size: 4.5rem; margin:0; line-height: 1; font-family: 'Playfair Display'; }
+        .top-bar { background: #000; padding: 10px; text-align: center; font-size: 0.7rem; letter-spacing: 1px; opacity: 0.8; }
         
-        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 20px; }
-        .gallery-grid img { width: 100%; height: 300px; object-fit: cover; border: 1px solid #222; }
+        .hero { 
+            position: relative; height: 90vh; display: flex; align-items: center; justify-content: center; overflow: hidden;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/featured/1920x1080/?High-Tech,&,AI,Gadgets,>,Ordinateurs,Edge,AI,abstract') fixed center/cover;
+        }
+        .hero-content { text-align: center; max-width: 900px; padding: 20px; z-index: 10; }
+        .edition-tag { color: var(--p); font-size: 0.9rem; font-weight: bold; letter-spacing: 5px; margin-bottom: 20px; display: block; }
+        h1 { font-size: clamp(3rem, 10vw, 6rem); margin: 0; line-height: 0.85; font-weight: 800; text-transform: uppercase; }
+        .price-hero { font-size: 3rem; font-weight: 300; color: var(--p); margin-top: 20px; }
+        .old-price { font-size: 1.5rem; text-decoration: line-through; opacity: 0.5; margin-left: 15px; }
+
+        .stats-bar { display: grid; grid-template-columns: repeat(3, 1fr); background: #000; padding: 20px; text-align: center; border-bottom: 1px solid #222; }
+        .stat-item { font-size: 0.8rem; font-weight: bold; color: var(--p); }
+
+        .content-section { max-width: 1200px; margin: 0 auto; padding: 100px 20px; }
+        .magazine-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: flex-start; }
+        @media (max-width: 900px) { .magazine-grid { grid-template-columns: 1fr; } }
         
-        .main-content { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; padding: 60px; max-width: 1400px; margin: 0 auto; }
-        .copy { font-size: 1.3rem; line-height: 1.8; opacity: 0.9; }
-        .headline { font-size: 2.2rem; color: var(--p); font-style: italic; margin-bottom: 30px; }
+        .product-card { position: sticky; top: 40px; }
+        .main-img { width: 100%; box-shadow: 0 50px 100px rgba(0,0,0,0.8); }
         
-        .v3-sidebar { background: #111; padding: 40px; border: 1px solid #222; height: fit-content; sticky: top 20px; }
-        .price-box { font-size: 3rem; font-weight: 800; color: var(--p); }
+        .copy-box { padding: 20px; }
+        .headline { font-size: 2rem; margin-bottom: 40px; font-style: italic; line-height: 1.2; border-bottom: 1px solid var(--p); padding-bottom: 20px; }
+        .desc { font-size: 1.2rem; opacity: 0.8; margin-bottom: 50px; text-align: justify; }
+
+        .authority-strip { display: flex; justify-content: space-between; opacity: 0.3; filter: grayscale(1); margin: 50px 0; padding: 20px 0; border-top: 1px solid #333; border-bottom: 1px solid #333; }
+        .authority-strip img { height: 25px; }
+
+        .vs-table { background: #111; padding: 40px; margin: 60px 0; border: 1px solid #222; }
+        .vs-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px; padding: 15px 0; border-bottom: 1px solid #222; font-size: 0.9rem; }
+        .check { color: var(--p); font-weight: bold; }
+
+        .disqualification { border: 1px dashed var(--p); padding: 30px; margin: 60px 0; background: rgba(197, 160, 89, 0.05); }
+        .disqualification h4 { margin: 0 0 10px 0; color: var(--p); letter-spacing: 2px; }
+
+        .premium-deal { background: var(--p); color: #000; padding: 40px; margin: 60px 0; text-align: center; border-radius: 8px; transform: rotate(-1deg); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .premium-deal h2 { margin: 0; font-size: 2.5rem; line-height: 1; }
+        .premium-deal p { font-weight: bold; margin: 15px 0; opacity: 0.8; }
+        .premium-btn { display: inline-block; background: #000; color: #fff; padding: 15px 30px; text-decoration: none; font-weight: 900; margin-top: 20px; border-radius: 4px; }
+
+        .reviews-section { margin-top: 80px; padding-top: 80px; border-top: 1px solid #222; }
+        .faq-section { margin-top: 80px; background: #000; padding: 60px; border: 1px solid #222; }
+
+        .sticky-cta { 
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 500px;
+            background: var(--p); color: #000; padding: 20px; text-align: center; text-decoration: none;
+            font-weight: 900; font-size: 1.2rem; z-index: 1000; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: flex; justify-content: space-between; align-items: center; border-radius: 4px;
+        }
         
-        .btn { display: block; background: var(--p); color: #000; padding: 25px; text-align: center; text-decoration: none; font-weight: 900; margin-top: 30px; border-radius: 5px; font-size: 1.4rem; }
-        
-        @media (max-width: 800px) { .main-content { grid-template-columns: 1fr; } h1 { font-size: 2.5rem; } }
+        footer { text-align: center; padding: 100px 0 150px; opacity: 0.3; font-size: 0.7rem; letter-spacing: 2px; }
     </style>
+    <script>
+      function track(type) {
+        const data = { p: "D\u00c3\u00a9bloquez le potentiel de l'IA avec l'ordinateur Edge AI V2", l: "fr", t: new Date().toISOString(), type: type };
+        const msg = "🎯 CLIC : " + data.p + " (" + data.l + ")";
+
+        fetch("https://api.telegram.org/bot8137601225:AAECb3Etkskb7V67YeFe9SAYqjQHbdZlgcQ/sendMessage", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chat_id: "7569444463", text: msg })
+        }).catch(() => {});
+      }
+    </script>
 </head>
 <body>
-    <div class="top-bar">Note de Transparence : Nos recherches sont indépendantes.</div>
+    <div class="noise"></div>
+    <div class="top-bar">Note de Transparence : Nos recherches sont indépendantes. En utilisant nos liens, vous soutenez notre travail d'expertise.</div>
+    
     <div class="hero">
-        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div style="letter-spacing: 5px; margin-bottom: 20px;">ÉDITION EXCLUSIVE 2026</div>
+            <span class="edition-tag">ÉDITION EXCLUSIVE 2026</span>
             <h1>DÃ©bloquez le potentiel de l'IA avec l'ordinateur Edge AI V2</h1>
+            <div class="price-hero">994 € <span class="old-price">1604 €</span></div>
         </div>
     </div>
 
-    <div class="gallery-grid">
-        <img src="https://source.unsplash.com/featured/800x800/?DÃ©bloquez,le,potentiel,de,l'IA,avec,l'ordinateur,Edge,AI,V2,lifestyle">
-        <img src="https://source.unsplash.com/featured/800x800/?DÃ©bloquez,le,potentiel,de,l'IA,avec,l'ordinateur,Edge,AI,V2,detail">
-        <img src="https://source.unsplash.com/featured/800x800/?DÃ©bloquez,le,potentiel,de,l'IA,avec,l'ordinateur,Edge,AI,V2,modern">
+    <div class="stats-bar">
+        <div class="stat-item">⭐ 4.9/5</div>
+        <div class="stat-item">✅ 3 847 clients satisfaits</div>
+        <div class="stat-item">🚀 98% recommandent à un ami</div>
     </div>
 
-    <div class="main-content">
-        <div class="copy">
-            <div class="headline">"ExpÃ©riencez l'avenir du calcul avec notre ordinateur Edge AI de prochaine gÃ©nÃ©ration"</div>
-            <p>Portez votre expÃ©rience de calcul AI Ã  de nouveaux sommets avec notre ordinateur Edge AI V2, Ã©quipÃ© de l'accÃ©lÃ©ration AI Ã  l'avant-garde et d'une intÃ©gration sans effort avec vos applications AI prÃ©fÃ©rÃ©es.</p>
-            <div style="margin-top: 50px;">
-                <h3 style="color: var(--p);">LUXE VS MASSE</h3>
-                <ul style="list-style: none; padding:0;">
-                    <li style="padding: 15px 0; border-bottom: 1px solid #222;">✅ Qualité Supérieure : <strong>YES</strong></li>
-                    <li style="padding: 15px 0; border-bottom: 1px solid #222;">✅ Garantie 5 Ans : <strong>PLATINUM</strong></li>
-                    <li style="padding: 15px 0; border-bottom: 1px solid #222;">✅ Support Concierge : <strong>24/7 VIP</strong></li>
-                </ul>
+    <div class="content-section">
+        <div class="magazine-grid">
+            <div class="product-card">
+                <img src="https://source.unsplash.com/featured/1200x1200/?High-Tech,&,AI,Gadgets,>,Ordinateurs,Edge,AI,DÃ©bloquez,le,potentiel,de,l'IA,avec,l'ordinateur,Edge,AI,V2,luxury" class="main-img">
+                <div class="authority-strip">
+                    <span>VOGUE</span><span>FORBES</span><span>GQ</span><span>WIRED</span>
+                </div>
+            </div>
+            
+            <div class="copy-box">
+                <p class="headline">"ExpÃ©riencez l'avenir du calcul avec notre ordinateur Edge AI de prochaine gÃ©nÃ©ration"</p>
+                <p class="desc">Portez votre expÃ©rience de calcul AI Ã  de nouveaux sommets avec notre ordinateur Edge AI V2, Ã©quipÃ© de l'accÃ©lÃ©ration AI Ã  l'avant-garde et d'une intÃ©gration sans effort avec vos applications AI prÃ©fÃ©rÃ©es.</p>
+                
+                <div class="disqualification">
+                    <h4>PAS POUR TOUT LE MONDE</h4>
+                    <p style="margin:0; font-size: 0.9rem; opacity: 0.7;">Cette sélection est réservée à ceux qui refusent le compromis. Si vous cherchez de l'entrée de gamme, passez votre chemin.</p>
+                </div>
+
+                <div class="premium-deal">
+                    <h2>ACCÈS PRIVILÈGE</h2>
+                    <p>Accédez aux stocks réservés et aux remises exclusives avant tout le monde.</p>
+                    <a href="https://affilmax.lemonsqueezy.com/checkout/buy/2026-luxury-pass" class="premium-btn" onclick="track('lemonsqueezy')" target="_blank">DÉBLOQUER MAINTENANT</a>
+                </div>
+
+                <div class="vs-table">
+                    <h3 style="margin-top:0;">LUXE VS MASSE</h3>
+                    <div class="vs-row" style="color:var(--p); font-weight:bold;"><span>Feature</span><span>EXCELLENCE AFFILMAX</span><span>MARCHÉ STANDARD</span></div>
+                    <div class="vs-row"><span>Qualité Supérieure</span><span class="check">✓ YES</span><span>✕ NO</span></div>
+                    <div class="vs-row"><span>Garantie Étendue</span><span class="check">✓ 5 YEARS</span><span>✕ 1 YEAR</span></div>
+                    <div class="vs-row"><span>Support Concierge</span><span class="check">✓ 24/7 VIP</span><span>✕ EMAIL</span></div>
+                </div>
+
+                <div class="reviews-section">
+                    <h2 style="margin-bottom: 40px; letter-spacing: 2px;">Avis de nos clients privilégiés</h2>
+                    
+            <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
+                <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
+                <div style="font-weight: bold; margin: 5px 0;">Carole M. (Toulouse)</div>
+                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">10 d</div>
+                <div style="font-weight: 700; margin-bottom: 10px;">📌 Exactement comme décrit, voire mieux</div>
+                <div style="font-size: 0.95rem; opacity: 0.8;">"Le design est sublime et les performances sont au-dessus de mes attentes. Mes amis me demandent déjà où je l'ai eu."</div>
+                <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
+            </div>
+            
+            <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
+                <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
+                <div style="font-weight: bold; margin: 5px 0;">Carole M. (Bordeaux)</div>
+                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">11 d</div>
+                <div style="font-weight: 700; margin-bottom: 10px;">📌 Vraiment surpris du résultat!</div>
+                <div style="font-size: 0.95rem; opacity: 0.8;">"J'ai commandé DÃ©bloquez le potentiel de l'IA avec l'ordinateur Edge AI V2 par doute, mais après quelques jours d'utilisation, c'est devenu indispensable. Qualité pro."</div>
+                <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
+            </div>
+            
+            <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
+                <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
+                <div style="font-weight: bold; margin: 5px 0;">Carole M. (Bordeaux)</div>
+                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">7 d</div>
+                <div style="font-weight: 700; margin-bottom: 10px;">📌 Aucun regret, je recommande</div>
+                <div style="font-size: 0.95rem; opacity: 0.8;">"Mon hésitation a duré 2 heures. Là 8 jours après, je ne regrette absolument pas mon choix."</div>
+                <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
+            </div>
+            
+            <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
+                <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
+                <div style="font-weight: bold; margin: 5px 0;">Jérôme L. (Montpellier)</div>
+                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">4 d</div>
+                <div style="font-weight: 700; margin-bottom: 10px;">📌 Ça a changé ma routine</div>
+                <div style="font-size: 0.95rem; opacity: 0.8;">"Honnêtement, je ne peux plus m'en passer. Le support client a même répondu à ma question en moins de 2h."</div>
+                <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
+            </div>
+            
+            <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
+                <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐</div>
+                <div style="font-weight: bold; margin: 5px 0;">Marc V. (Lille)</div>
+                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">13 d</div>
+                <div style="font-weight: 700; margin-bottom: 10px;">📌 Vraiment surpris du résultat!</div>
+                <div style="font-size: 0.95rem; opacity: 0.8;">"J'ai commandé DÃ©bloquez le potentiel de l'IA avec l'ordinateur Edge AI V2 par doute, mais après quelques jours d'utilisation, c'est devenu indispensable. Qualité pro."</div>
+                <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
+            </div>
+            
+            <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
+                <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
+                <div style="font-weight: bold; margin: 5px 0;">Jérôme L. (Toulouse)</div>
+                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">10 d</div>
+                <div style="font-weight: 700; margin-bottom: 10px;">📌 Ça a changé ma routine</div>
+                <div style="font-size: 0.95rem; opacity: 0.8;">"Honnêtement, je ne peux plus m'en passer. Le support client a même répondu à ma question en moins de 2h."</div>
+                <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
+            </div>
+            
+            <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
+                <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
+                <div style="font-weight: bold; margin: 5px 0;">Émilie C. (Lille)</div>
+                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">12 d</div>
+                <div style="font-weight: 700; margin-bottom: 10px;">📌 J'étais sceptique... MAIS ça marche vraiment</div>
+                <div style="font-size: 0.95rem; opacity: 0.8;">"Franchement, j'ai pas cru au départ. Mais là, 12 jours plus tard, je vois la différence. C'est rentabilisé."</div>
+                <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
+            </div>
+            
+            <div style="background: #111; padding: 25px; margin-bottom: 20px; border-left: 3px solid var(--p);">
+                <div style="color: var(--p); font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
+                <div style="font-weight: bold; margin: 5px 0;">Lucas G. (Bordeaux)</div>
+                <div style="font-size: 0.7rem; opacity: 0.5; margin-bottom: 15px;">14 d</div>
+                <div style="font-weight: 700; margin-bottom: 10px;">📌 Pas d'arnaques, c'est du sérieux</div>
+                <div style="font-size: 0.95rem; opacity: 0.8;">"Beaucoup de peur avant de payer, mais c'est transparent et efficace. 10/10."</div>
+                <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.4;">Utile ? 👍 💬 Répondre</div>
+            </div>
+            
+                </div>
+
+                <div class="faq-section">
+                    <h2 style="margin-bottom: 40px; letter-spacing: 2px;">Questions Fréquentes</h2>
+                    
+            <div style="margin-bottom: 30px;">
+                <div style="font-weight: 800; color: var(--p); margin-bottom: 10px;">Q: Pourquoi ce prix est-il si bas ?</div>
+                <div style="opacity: 0.7;">R: Nous travaillons en flux tendu directement avec les entrepôts certifiés Amazon pour vous garantir le tarif 'Early Access' 2026.</div>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <div style="font-weight: 800; color: var(--p); margin-bottom: 10px;">Q: Est-ce compatible avec mon installation ?</div>
+                <div style="opacity: 0.7;">R: Le DÃ©bloquez le potentiel de l'IA avec l'ordinateur Edge AI V2 est conçu pour être universel et s'adapter aux standards européens et internationaux.</div>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <div style="font-weight: 800; color: var(--p); margin-bottom: 10px;">Q: Quelle est la durée de la garantie ?</div>
+                <div style="opacity: 0.7;">R: Tous nos produits bénéficient de la garantie 'AffilMax Platinum' de 5 ans en plus de la protection Amazon.</div>
+            </div>
+            
+                </div>
             </div>
         </div>
-        
-        <div class="v3-sidebar">
-            <div style="opacity: 0.5; text-decoration: line-through;">2057 €</div>
-            <div class="price-box">1501.95 €</div>
-            <div style="background: #000; color: #fff; padding: 5px 15px; display: inline-block; margin-top: 10px;">-27% OFF</div>
-            <a href="https://www.amazon.fr/dp/B000000000?tag=confortbure07-21" class="btn">PROFITEZ DE L'OFFRE</a>
-            <div style="margin-top: 30px; font-size: 0.8rem; text-align: center; opacity: 0.6;">Paiement & Expédition via Amazon</div>
-        </div>
     </div>
 
-    <footer style="padding: 100px; text-align: center; opacity: 0.3; font-size: 0.8rem;">
-        &copy; 2026 AFFILMAX LUXURY - TOUS DROITS RÉSERVÉS
-    </footer>
+    <a href="https://www.amazon.fr/s?k=DÃ©bloquez+le+potentiel+de+l'IA+avec+l'ordinateur+Edge+AI+V2&tag=confortbure07-21" class="sticky-cta" onclick="track('amazon')" target="_blank">
+        <span>994 € | VOIR LE PRIX RÉDUIT</span>
+        <span style="font-size: 0.8rem; background: #000; color: #fff; padding: 5px 10px;">-38%</span>
+    </a>
+
+    <footer>&copy; 2026 AFFILMAX LUXURY - TOUS DROITS RÉSERVÉS</footer>
 </body>
 </html>
