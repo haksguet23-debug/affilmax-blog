@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://haksguet23-debug.github.io/affilmax-blog/sitemap_fr.xml
+Sitemap: https://haksguet23-debug.github.io/affilmax-blog/sitemap_index.xml
